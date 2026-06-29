@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "nyx:star_block",
+    "nyx:cracked_star_block",
+    "nyx:chiseled_star_block",
+    "nyx:star_stairs",
+    "nyx:star_slab",
+    "nyx:meteor_block",
+    "nyx:meteor_rock",
+    "nyx:gleaning_meteor_rock",
+    "nyx:crystal",
+    "nyx:lunar_water_cauldron"
+  ]
+}

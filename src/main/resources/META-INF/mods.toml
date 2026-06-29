@@ -3,20 +3,19 @@ loaderVersion="[47,)"
 license="MIT"
 issueTrackerURL="https://github.com/skytekx/nyx/issues"
 
-# Client-only visual mod: the dedicated server neither needs nor loads it.
 [[mods]]
 modId="nyx"
 version="${file.jarVersion}"
 displayName="Nyx"
-displayTest="IGNORE_SERVER_VERSION"
 authors="Ellpeck (original), Florian Kleber / SkyTekx (1.20.1 port)"
 credits="Original mod by Ellpeck (https://github.com/Ellpeck/Nyx), MIT licensed."
 description='''
-A client-side mod about the effects of the moon. Nights are darker and tinted,
-with the brightness and colour of the night governed by the current moon phase:
-a full moon keeps the night bright, a new moon turns it pitch black.
+Nyx, a mod about the effects of the moon. Adds lunar events (full, blood and
+harvest moons and star showers), falling meteors and stars, lunar water and
+gleaning crystals, meteor tools and armour, moon-scaled enchantments, and a
+moon-phase-driven darker, tinted night sky.
 
-1.20.1 port of Ellpeck's Nyx.
+Full 1.20.1 port of Ellpeck's Nyx.
 '''
 
 [[dependencies.nyx]]
@@ -24,11 +23,11 @@ a full moon keeps the night bright, a new moon turns it pitch black.
     mandatory=true
     versionRange="[47,)"
     ordering="NONE"
-    side="CLIENT"
+    side="BOTH"
 
 [[dependencies.nyx]]
     modId="minecraft"
     mandatory=true
     versionRange="[1.20.1,1.21)"
     ordering="NONE"
-    side="CLIENT"
+    side="BOTH"

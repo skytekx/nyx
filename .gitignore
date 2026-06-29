@@ -19,3 +19,5 @@
 *.launch
 .settings/org.eclipse.jdt.core.prefs
 *.prefs
+/.apiref/
+/run/

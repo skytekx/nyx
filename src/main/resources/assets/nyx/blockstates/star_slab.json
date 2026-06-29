@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "nyx:block/star_slab"
+    },
+    "type=top": {
+      "model": "nyx:block/star_slab_top"
+    },
+    "type=double": {
+      "model": "nyx:block/star_block"
+    }
+  }
+}

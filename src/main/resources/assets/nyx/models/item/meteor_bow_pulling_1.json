@@ -1,0 +1,6 @@
+{
+    "parent": "item/bow",
+    "textures": {
+        "layer0": "nyx:item/meteor_bow_pulling_1"
+    }
+}
