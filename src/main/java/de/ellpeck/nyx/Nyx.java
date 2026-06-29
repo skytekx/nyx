@@ -1,49 +1,29 @@
 package de.ellpeck.nyx;
 
-import de.ellpeck.nyx.commands.CommandForce;
-import de.ellpeck.nyx.commands.CommandMeteor;
-import de.ellpeck.nyx.network.PacketHandler;
-import de.ellpeck.nyx.proxy.CommonProxy;
-import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventHandler;
-import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.loading.FMLEnvironment;
 
-@Mod(modid = Nyx.ID, name = Nyx.NAME, version = Nyx.VERSION, guiFactory = "de.ellpeck.nyx.GuiFactory")
-public class Nyx {
+/**
+ * Nyx, ported to Minecraft 1.20.1 (Forge).
+ *
+ * <p>Original mod and concept: Ellpeck (https://github.com/Ellpeck/Nyx, MIT).
+ * This client-side port reimplements Nyx's core night-atmosphere idea on the
+ * 1.20.1 client render pipeline: the night gets darker and is tinted, with the
+ * intensity driven by the moon phase.
+ */
+@Mod(Nyx.ID)
+public final class Nyx {
 
     public static final String ID = "nyx";
     public static final String NAME = "Nyx";
-    public static final String VERSION = "@VERSION@";
 
-    @Mod.Instance
-    public static Nyx instance;
-    @SidedProxy(clientSide = "de.ellpeck.nyx.proxy.ClientProxy", serverSide = "de.ellpeck.nyx.proxy.CommonProxy")
-    public static CommonProxy proxy;
-
-    static {
-        FluidRegistry.enableUniversalBucket();
-    }
-
-    @EventHandler
-    public void preInit(FMLPreInitializationEvent event) {
-        Config.init(event.getSuggestedConfigurationFile());
-        Registry.preInit();
-        PacketHandler.init();
-    }
-
-    @EventHandler
-    public void init(FMLInitializationEvent event) {
-        Registry.init();
-    }
-
-    @EventHandler
-    public void serverStarting(FMLServerStartingEvent event) {
-        event.registerServerCommand(new CommandForce());
-        if (Config.meteors)
-            event.registerServerCommand(new CommandMeteor());
+    public Nyx() {
+        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, NyxConfig.CLIENT_SPEC);
+        // Purely a client visual mod; the dedicated server has nothing to do here.
+        if (FMLEnvironment.dist != Dist.CLIENT)
+            return;
     }
 }
