@@ -6,7 +6,7 @@ plugins {
 }
 
 // 1.20.1 port of Ellpeck's Nyx (https://github.com/Ellpeck/Nyx), MIT.
-version = '1.20.1-1.0.0'
+version = '1.20.1-1.0.1'
 group = 'de.ellpeck.nyx'
 archivesBaseName = 'nyx'
 
