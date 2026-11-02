@@ -80,10 +80,17 @@ public final class Registration {
 
     // region materials -------------------------------------------------------
 
+    // Blocks that only a meteor tool or better may mine. The tag ships empty.
+    // The meteor tier must not reuse minecraft:needs_diamond_tool: Forge's TierSortingRegistry treats a block in
+    // the tag of any tier sorted above diamond as too hard for diamond, so obsidian, ancient debris and every
+    // other diamond block stopped dropping for diamond pickaxes while this tier carried that tag.
+    public static final net.minecraft.tags.TagKey<Block> NEEDS_METEOR_TOOL =
+            BlockTags.create(new ResourceLocation(Nyx.ID, "needs_meteor_tool"));
+
     // Original: EnumHelper.addToolMaterial("NYX:METEOR", 3, (int)(1561*1.5F), 7, 7, 18)
     // -> harvest level 3 (diamond), uses 2341, speed 7, attack bonus 7, enchantability 18.
     public static final Tier METEOR_TIER = TierSortingRegistry.registerTier(
-            new ForgeTier(3, 2341, 7.0F, 7.0F, 18, BlockTags.NEEDS_DIAMOND_TOOL,
+            new ForgeTier(3, 2341, 7.0F, 7.0F, 18, NEEDS_METEOR_TOOL,
                     () -> Ingredient.of(Registration.METEOR_INGOT.get())),
             new ResourceLocation(Nyx.ID, "meteor"),
             List.<Object>of(net.minecraft.world.item.Tiers.DIAMOND),
