@@ -7,7 +7,7 @@ issueTrackerURL="https://github.com/skytekx/nyx/issues"
 modId="nyx"
 version="${file.jarVersion}"
 displayName="Nyx"
-authors="Ellpeck (original), Florian Kleber / SkyTekx (1.20.1 port)"
+authors="Ellpeck (original), SkyTekx (1.20.1 port)"
 credits="Original mod by Ellpeck (https://github.com/Ellpeck/Nyx), MIT licensed."
 description='''
 Nyx, a mod about the effects of the moon. Adds lunar events (full, blood and
